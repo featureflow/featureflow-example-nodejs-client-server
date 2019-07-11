@@ -1,24 +1,18 @@
-# create-react-app React Project with Node Express Backend
+# featureflow-example-nodejs-client-server
 
-> Example of using the featureflow nodejs SDK to return a list of evcaluated features to a react frontend.
+> An example of using the featureflow nodejs SDK to return a list of evaluated features to a react frontend.
 
 Typically you might use this setup if:
 
-1. You do not need the advanced features of the featureflow JS client
+1. You do not need the advanced features of the featureflow Javascript client
 2. You want the security of evaluating features on your own servers
-3. You want the cost-benefit of using server side feature evaluations only
+3. You want the cost-benefit of using server-side feature evaluations only.
 
 ## Usage
 
 Set your featureflow _Server Environment SDK Key_ in server.js: 
 ```javascript
 const API_KEY = 'srv-env-685...';
-```
-
-Install [nodemon](https://github.com/remy/nodemon) globally
-
-```
-npm i nodemon -g
 ```
 
 Install server and client dependencies
@@ -38,7 +32,7 @@ yarn dev
 ## Detail
 This is based on the nodejs example https://github.com/featureflow/featureflow-node-example 
 
-1. in server.js we define a middleware to set the user - this would typically be set from your user login details
+1. in server.js we create a middleware to define the user - this would typically be set from your logged in user details
 ```javascript
 
 let userMiddleware = function (req, res, next) {
@@ -53,11 +47,11 @@ let userMiddleware = function (req, res, next) {
   next();
 };
 ```
-2. We create the featureflow client singleton 
+2. We create the featureflow client 
 ```javascript
 let featureflowExpress = new Featureflow.ExpressClient(config);
 ```
-3. We create a /features rest endpoint and use the featureflow.evaluateAll method to evaluate all features and pass them back as an object
+3. We create a _/features_ rest endpoint and use the featureflow.evaluateAll method to evaluate all features and pass them back as an object
 ```javascript
 app.get('/api/features', (req, res) => {
   return res.send(req.featureflow.evaluateAll(req.ffUser));
@@ -78,11 +72,13 @@ this.callApi()
 }</p>
 ```
  
-For example, in an SPA you may call /featres once for the anonymous user then again when a user logs in.
+For example, in an SPA you may call /features once for the anonymous user then again when a user logs in.
 
 ## Further Reading
 
 See http://docs.featureflow.io for more information
+
+## Additional Usage Details
 
 Running the production build on localhost. This will create a production build, then Node will serve the app on http://localhost:5000
 
