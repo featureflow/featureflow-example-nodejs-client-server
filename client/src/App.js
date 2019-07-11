@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-
-import logo from './logo.svg';
+import React, {Component} from 'react';
 
 import './App.css';
 
@@ -18,7 +16,6 @@ class App extends Component {
   callApi = async () => {
     const response = await fetch('/api/features'), body = await response.json();
     if (response.status !== 200) throw Error(body.message);
-    //console.log(body);
     return body;
   };
 
@@ -34,15 +31,10 @@ class App extends Component {
   };
 
   render() {
-    let featureList = Object.keys(this.state.features).map(function(keyName, keyIndex) {})
-   /* let features = !!this.state.features?'':Object.keys(this.state.features).map(key =>
-        <option value={key}>{features[key]}</option>
-    );*/
-
     return (
       <div className="App">
         <header className="App-header">
-          {/*<img src={logo} className="App-logo" alt="logo" />*/}
+            Featureflow React Client - NodeJS Server SDK Example
         </header>
 
         <form onSubmit={this.handleSubmit}>

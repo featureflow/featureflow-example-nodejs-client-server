@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const Featureflow = require('featureflow-node-sdk');
-const API_KEY = 'srv-env-23';
+const API_KEY = 'srv-env-685e066d234567890';
 
 const app = express();
 const port = process.env.PORT || 5000;
